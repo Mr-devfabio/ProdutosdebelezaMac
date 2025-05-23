@@ -1,4 +1,6 @@
 [build]
-  command = "npm run build" # Ajuste para o comando de build do seu projeto
-  publish = "dist" # Diretório onde os arquivos estáticos são gerados
+  publish = "."
   functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
