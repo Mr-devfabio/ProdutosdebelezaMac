@@ -1,7 +1,7 @@
 {
-  "name": "produtosdebelezamac",
+  "name": "minhas-funcoes",
   "version": "1.0.0",
-  "description": "Loja virtual de batom MAC",
+  "description": "Funções para loja virtual de batom MAC",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,6 @@
     "firebase": "^10.12.2"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
