@@ -1,7 +1,4 @@
 [build]
   command = "npm run build" # Ajuste para o comando de build do seu projeto
   publish = "dist" # Diretório onde os arquivos estáticos são gerados
-  functions = "functions" # Diretório das Netlify Functions
-
-[dev]
-  command = "npm run start" # Opcional, para desenvolvimento local
+  functions = "functions"
