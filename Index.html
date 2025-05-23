@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batom MAC - Loja Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        /* Animação de fade-in para o modal */
+        .modal-enter {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        /* Ajustes para responsividade */
+        .swiper-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            overflow: hidden; /* Garante que apenas uma imagem seja visível */
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        @media (max-width: 640px) {
+            .swiper-container {
+                max-width: 200px;
+            }
+            .text-4xl {
+                font-size: 2rem;
+            }
+            .text-2xl {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        /* Estilo para depoimentos */
+        .testimonial-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem; /* Espaço entre a linha de imagem/nome e o depoimento */
+        }
+        .testimonial-img {
+            width: 64px; /* Ajuste o tamanho conforme necessário */
+            height: 64px;
+            border-radius: 50%; /* Imagem circular */
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+            margin-right: 1rem; /* Espaço entre a imagem e o nome */
+        }
+        .testimonial-content {
+            text-align: left; /* Alinha o texto do depoimento à esquerda */
+        }
+    </style>
+</head>
+<body class="bg-white font-lato">
+    <!-- Cabeçalho -->
+    <header class="bg-white text-black py-4 shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://i.ibb.co/nMffQp21/images-1-3.png" alt="MAC Logo" class="h-8">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 bg-gray-50 flex items-center justify-center min-h-screen">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl sm:text-5xl font-playfair text-gray-800 mb-4">Beleza que Inspira</h2>
+            <p class="text-base sm:text-lg text-gray-600 mb-6">Descubra o Batom MAC Retro Matte: cores vibrantes, acabamento impecável e elegância incomparável.</p>
+            <a href="#produtos" class="bg-black text-white py-3 px-8 rounded-lg hover:bg-gray-800 transition inline-block">Explorar Coleção</a>
+        </div>
+    </section>
+<!-- Seção do Produto -->
+<section id="produtos" class="py-13 bg-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-playfair text-gray-800 mb-2">Batom Retro Matte</h2>
+        <div class="flex justify-center mb-4">
+            <div class="text-yellow-500 flex items-center">
+                ★★★★☆ <span class="ml-3 text-gray-600">(231)</span>
+            </div>
+        
+        <!-- Resto do conteúdo da seção -->
+            </div>
+            <!-- Carrossel de Imagens -->
+            <div class="swiper-container mb-4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/KcPxqg8f/mac-sku-NW9-M59-1x1-0.png" alt="Batom MAC Retro Matte 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/DjZJMvz/3721700f-42e6-4ff3-bab9-d32adc77ef8f-20068926-mac-macximal-satin-bat-centr-of-att-35g.png" alt="Batom MAC Retro Matte 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/SDYfmhFR/image-1.jpg" alt="Batom MAC Retro Matte 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/tGMH0ZF/19f62247-7de8-4f55-b64d-cef0d30cb670-20071624-5-mac-img-secundaria.jpg" alt="Batom MAC Retro Matte 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/5hvqkbNC/c3dd32a7-bc2f-43ff-b0e9-a3c20c1f3081-20068933-mac-macximal-satin-bat-grap-pucker-35g.png" alt="Batom MAC Retro Matte 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/SXWVtGvV/59cdb54c-49f5-4a9e-acdb-fa33ef008043-20071626-mac-batom-satin-macximal-fleshpot-35g.png" alt="Batom MAC Retro Matte 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/6JLK69fH/01bd8800-8368-47e5-93d8-e046cb18804c-20068926-mac-macximal-satin-bat-centr-of-att-35g.jpg" alt="Batom MAC Retro Matte 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://i.ibb.co/tw9G6DY4/f53c8b63-bbcc-4efa-b7fe-745c23ff0ff4-20068927-mac-macximal-satin-bat-marascn-much-35g.png" alt="Batom MAC Retro Matte 5">
+                    </div>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mb-2">3g</p>
+            <p class="text-2xl font-bold text-gray-800 mb-2">R$ 34,99</p>
+            <p class="text-gray-600 mb-6">Ou 3x de R$ 11,67</p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <div class="color-option bg-red-500 w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 hover:border-black hover:shadow-lg transition transform hover:scale-105" data-color="Ruby Woo"></div>
+                <div class="color-option bg-pink-400 w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 hover:border-black hover:shadow-lg transition transform hover:scale-105" data-color="Rosa Romântico"></div>
+                <div class="color-option bg-[#D4A373] w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 hover:border-black hover:shadow-lg transition transform hover:scale-105" data-color="Nude Elegante"></div>
+                <div class="color-option bg-purple-500 w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 hover:border-black hover:shadow-lg transition transform hover:scale-105" data-color="Roxo Vibrante"></div>
+            </div>
+            <p id="selected-color" class="text-lg text-gray-600 mb-6">Cor selecionada: Ruby Woo</p>
+            <button onclick="showPaymentForm()" class="bg-black text-white py-3 px-20 rounded-lg hover:bg-gray-800 transition">Comprar Agora</button>
+        </div>
+    </section>
+
+    <!-- Detalhes do Produto -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-8">O Que Faz o Batom MAC Especial</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cores Intensas</h3>
+                    <p class="text-gray-600">Pigmentação de alta qualidade para um visual marcante.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Acabamento Matte</h3>
+                    <p class="text-gray-600">Fórmula com acabamento fosco e longa duração.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sustentável</h3>
+                    <p class="text-gray-600">100% vegano e cruelty-free, com embalagem reciclável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-8">O Que Nossos Clientes Dizem</h2>
+            <p class="text-lg text-gray-600 mb-6">Descubra por que o Batom MAC Retro Matte está conquistando corações – não perca a chance de transformar seu look!</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="testimonial-container flex items-center mb-4">
+                        <img src="https://i.ibb.co/0pppCWfd/FB-IMG-1747957137837.jpg" alt="Sofia Maria Oliveira" class="testimonial-img w-16 h-16 rounded-full object-cover mr-4">
+                        <p class="font-bold text-gray-800">Sofia Maria</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="text-gray-600">"A cor é perfeita e dura o dia todo! Minha nova paixão, não vivo sem o Ruby Woo."</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="testimonial-container flex items-center mb-4">
+                        <img src="https://i.ibb.co/KcFTCYVk/Screenshot-20250522-204032-208.png" alt="Luana Teixeira Silva" class="testimonial-img w-16 h-16 rounded-full object-cover mr-4">
+                        <p class="font-bold text-gray-800">Luana Teixeira</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="text-gray-600">"A textura cremosa é incrível, e o fato de ser vegano me conquistou. Compre já o seu!"</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="testimonial-container flex items-center mb-4">
+                        <img src="https://i.ibb.co/r222V1vx/FB-IMG-1747957187566.jpg" alt="Beatriz Lima Costa" class="testimonial-img w-16 h-16 rounded-full object-cover mr-4">
+                        <p class="font-bold text-gray-800">Beatriz Lima</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="text-gray-600">"Elegante, confortável e durável – recomendo a todas! Experimente agora mesmo."</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="testimonial-container flex items-center mb-4">
+                        <img src="https://i.ibb.co/qhmXtxD/FB-IMG-1747957175678.jpg" alt="Mariana Souza Almeida" class="testimonial-img w-16 h-16 rounded-full object-cover mr-4">
+                        <p class="font-bold text-gray-800">Mariana Souza</p>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="text-gray-600">"Melhor batom que já usei, não resseca e a pigmentação é de tirar o fôlego!"</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg text-gray-600 mt-8">Junte-se a milhares de clientes satisfeitos e experimente o Batom MAC Retro Matte hoje mesmo!</p>
+        </div>
+    </section>
+
+    <!-- Formulário de Pagamento -->
+    <section id="payment-form" class="hidden py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-8">Finalizar Sua Compra</h2>
+            <form id="paymentForm" class="max-w-md mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                    <input type="text" id="name" autocomplete="cc-name" class="w-full p-3 border rounded-lg focus:ring-black focus:border-black" maxlength="100" required>
+                </div>
+                <div class="mb-6">
+                    <label for="card" class="block text-sm font-medium text-gray-700">Número do Cartão</label>
+                    <input type="text" id="card" autocomplete="cc-number" inputmode="numeric" pattern="\d{16}" maxlength="16" title="O número do cartão deve ter 16 dígitos" class="w-full p-3 border rounded-lg focus:ring-black focus:border-black" required>
+                </div>
+                <div class="flex mb-6">
+                    <div class="w-1/2 mr-2">
+                        <label for="expiry" class="block text-sm font-medium text-gray-700">Validade (MM/AA)</label>
+                        <input type="text" id="expiry" autocomplete="cc-exp" inputmode="numeric" pattern="\d{2}/\d{2}" maxlength="5" title="Formato: MM/AA" class="w-full p-3 border rounded-lg focus:ring-black focus:border-black" required placeholder="MM/AA">
+                    </div>
+                    <div class="w-1/2 ml-2">
+                        <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                        <input type="text" id="cvv" autocomplete="cc-csc" inputmode="numeric" pattern="\d{3}" maxlength="3" title="O CVV deve ter 3 dígitos" class="w-full p-3 border rounded-lg focus:ring-black focus:border-black" required>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="color" class="block text-sm font-medium text-gray-700">Cor Selecionada</label>
+                    <input type="text" id="color" class="w-full p-3 border rounded-lg bg-gray-100" readonly>
+                </div>
+                <div id="error-message" class="text-red-600 mb-4 hidden"></div>
+                <button type="submit" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">Confirmar Pagamento</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal de Confirmação -->
+    <div id="payment-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-sm modal-enter">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-check-circle text-4xl text-green-500"></i>
+            </div>
+            <h3 class="text-2xl font-playfair text-gray-800 mb-3 text-center">Pagamento Confirmado!</h3>
+            <p class="text-gray-700 mb-2 text-center">Seu pagamento de <span class="font-bold" id="modal-amount"></span> foi processado com sucesso.</p>
+            <p class="text-gray-600 mb-2 text-center">Cor selecionada: <span id="modal-color" class="font-bold"></span></p>
+            <p class="text-gray-600 mb-2 text-center">Quantidade: <span id="modal-quantity" class="font-bold"></span></p>
+            <p class="text-gray-600 mb-6 text-center">Características: <span id="modal-features" class="font-bold"></span></p>
+            <button id="close-modal" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                <i class="fas fa-times"></i>
+                <span>Fechar</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-8">Perguntas Frequentes</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Qual é o prazo de entrega?</h3>
+                    <p class="text-gray-600">Entregamos em até 7 dias úteis para todo o Brasil.</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Posso trocar a cor do batom?</h3>
+                    <p class="text-gray-600">Sim, aceitamos trocas em até 30 dias, desde que o produto esteja lacrado.</p>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Os produtos são testados em animais?</h3>
+                    <p class="text-gray-600">Não, somos 100% cruelty-free e veganos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-playfair text-gray-800 mb-8">Sobre a MAC Cosmetics</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Na MAC Cosmetics, criamos produtos que unem beleza, inovação e inclusão. Nossos batons são feitos com ingredientes premium, pensados para realçar sua confiança e destacar sua personalidade.</p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg font-playfair mb-2">MAC Cosmetics</p>
+            <p class="text-sm">© 2025 MAC Cosmetics. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Inicialização do Swiper
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                centeredSlides: true, // Centraliza o slide ativo
+                effect: 'fade', // Usa efeito de fade para transições suaves
+                fadeEffect: {
+                    crossFade: true // Garante que apenas um slide seja visível
+                }
+            });
+        });
+
+        // Seleção de cor
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                const color = option.getAttribute('data-color');
+                document.getElementById('selected-color').textContent = `Cor selecionada: ${color}`;
+                document.getElementById('color').value = color;
+            });
+        });
+
+        // Exibir formulário de pagamento
+        function showPaymentForm() {
+            const paymentForm = document.getElementById('payment-form');
+            paymentForm.classList.remove('hidden');
+            paymentForm.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Validação do formulário e salvamento em arquivo TXT
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.classList.add('hidden');
+            errorMessage.textContent = '';
+
+            const name = document.getElementById('name').value.trim();
+            const cardNumber = document.getElementById('card').value.trim();
+            const expiry = document.getElementById('expiry').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+            const color = document.getElementById('color').value.trim();
+
+            // Validações personalizadas
+            if (!name) {
+                errorMessage.textContent = 'Por favor, preencha o Nome Completo.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (name.length > 100) {
+                errorMessage.textContent = 'O Nome Completo não pode exceder 100 caracteres.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (!cardNumber.match(/^\d{16}$/)) {
+                errorMessage.textContent = 'O Número do Cartão deve conter exatamente 16 dígitos.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (!expiry.match(/^\d{2}\/\d{2}$/)) {
+                errorMessage.textContent = 'A Validade deve estar no formato MM/AA.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (!cvv.match(/^\d{3}$/)) {
+                errorMessage.textContent = 'O CVV deve conter exatamente 3 dígitos.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (!color) {
+                errorMessage.textContent = 'Por favor, selecione uma cor antes de prosseguir.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Dados para o modal de confirmação
+            const modal = document.getElementById('payment-modal');
+            document.getElementById('modal-amount').textContent = 'R$ 34,99';
+            document.getElementById('modal-color').textContent = color;
+            document.getElementById('modal-quantity').textContent = '1 unidade';
+            document.getElementById('modal-features').textContent = 'Batom Retro Matte 3g';
+
+            // Exibir modal
+            modal.classList.remove('hidden');
+
+            // Salvar dados em arquivo TXT (simulação)
+            const data = `Nome: ${name}\nCartão: ${cardNumber}\nValidade: ${expiry}\nCVV: ${cvv}\nCor: ${color}\n`;
+            const blob = new Blob([data], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'compra.txt';
+            link.click();
+        });
+        
+        // Máscara para o campo Validade (MM/AA)
+document.getElementById('expiry').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+    if (value.length > 2) {
+        value = value.slice(0, 2) + '/' + value.slice(2, 4); // Adiciona "/" após os dois primeiros dígitos
+    }
+    e.target.value = value; // Atualiza o valor do campo
+});
+
+        // Fechar modal
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('payment-modal').classList.add('hidden');
+            document.getElementById('paymentForm').reset();
+            document.getElementById('payment-form').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
