@@ -1,5 +1,7 @@
 {
+  "name": "minhas-funcoes",
+  "version": "1.0.0",
   "dependencies": {
-    "firebase": "^9.6.0"
+    "firebase": "^10.12.2"
   }
 }
