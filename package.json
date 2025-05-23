@@ -1,0 +1,16 @@
+{
+  "name": "meu-projeto",
+  "version": "1.0.0",
+  "description": "Meu projeto com Netlify Functions",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build", // Ajuste conforme o comando de build do seu projeto
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "firebase": "^10.12.2" // Use a versão mais recente ou a necessária
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0" // Opcional, para testes locais
+  }
+}
